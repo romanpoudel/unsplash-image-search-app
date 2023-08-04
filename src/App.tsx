@@ -1,19 +1,17 @@
 import "./App.css";
 import Home from "./components/Home";
 import Search from "./components/Search";
+import Pagination from "./components/Pagination";
 
 function App() {
   return (
     <div className="mx-auto w-[95%]">
-      {/* different components */}
       {/* search */}
-      <div>
-        <Search />
-      </div>
-      {/* sidebar */}
+      <Search />
       {/* image components */}
-      <div><Home /></div>
+      <Home />
       {/* pagination */}
+      <Pagination />
     </div>
   );
 }
