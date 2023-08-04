@@ -1,6 +1,12 @@
 import { LiaSearchSolid } from "react-icons/lia";
+import { MyContext } from "../context/MyContext";
+import { useContext } from "react";
 
 const Search = () => {
+  const { text, setText } = useContext(MyContext);
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+  };
   return (
     <div className="relative  my-6 flex  flex-row items-center rounded-lg bg-blue-500 ">
       <div className="pointer-events-none absolute flex h-full items-center rounded-l-lg bg-blue-500 px-4">
@@ -10,6 +16,8 @@ const Search = () => {
         <input
           type="text"
           title="search"
+          value={text}
+          onChange={ handleChange}
           placeholder="Search high-resolution images"
           className=" w-full rounded-lg bg-inherit p-2 pl-20 text-xl font-normal text-gray-100 outline-none placeholder:text-xl placeholder:text-gray-300"
         />

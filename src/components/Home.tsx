@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import Card from "./Card";
 import { createApi } from "unsplash-js";
+import { MyContext } from "../context/MyContext";
 
 type Photo = {
   id: number;
@@ -28,12 +29,13 @@ const api = createApi({
 });
 
 const Home = () => {
+  const { text} = useContext(MyContext);
   const [data, setPhotosResponse] = useState<any>(null);
   console.log(data);
   useEffect(() => {
     api.search
       .getPhotos({
-        query: "mountain",
+        query: text,
         page: 1,
         perPage: 10,
         color:"green",
@@ -45,7 +47,7 @@ const Home = () => {
       .catch(() => {
         console.log("something went wrong!");
       });
-  }, []);
+  }, [text]);
 
   //checking data
   if (data === null) {
