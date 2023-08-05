@@ -1,11 +1,17 @@
 import { LiaSearchSolid } from "react-icons/lia";
 import { MyContext } from "../context/MyContext";
-import { useContext } from "react";
+import { useContext ,useState,useEffect} from "react";
+import { useDebounce } from "usehooks-ts";
 
 const Search = () => {
-  const { text, setText } = useContext(MyContext);
+  const {setText } = useContext(MyContext);
+  const [input,setInput]=useState("");
+  const debouncedValue=useDebounce(input,1000);
+  useEffect(()=>{
+    setText(debouncedValue);
+  },[debouncedValue])
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
+    setInput(e.target.value);
   };
   return (
     <div className="relative  my-6 flex  flex-row items-center rounded-lg bg-blue-500 ">
@@ -16,12 +22,14 @@ const Search = () => {
         <input
           type="text"
           title="search"
-          value={text}
+          value={input}
           onChange={ handleChange}
           placeholder="Search high-resolution images"
           className=" w-full rounded-lg bg-inherit p-2 pl-20 text-xl font-normal text-gray-100 outline-none placeholder:text-xl placeholder:text-gray-300"
         />
       </div>
+      <p>Value real-time: {input}</p>
+      <p>Debounced value: {debouncedValue}</p>
     </div>
   );
 };

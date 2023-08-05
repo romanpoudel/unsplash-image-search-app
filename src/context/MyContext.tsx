@@ -7,7 +7,7 @@ export interface SearchInterface {
 
 const defaultState:SearchInterface=
     {
-        text: '',
+        text:'',
         setText:()=>{}
     }  
 
