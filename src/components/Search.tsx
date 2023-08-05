@@ -1,16 +1,18 @@
 import { LiaSearchSolid } from "react-icons/lia";
 import { MyContext } from "../context/MyContext";
-import { useContext ,useState,useEffect} from "react";
+import { useContext, useState, useEffect } from "react";
 import { useDebounce } from "usehooks-ts";
 
 const Search = () => {
-  const {setText } = useContext(MyContext);
-  const [input,setInput]=useState("");
-  const debouncedValue=useDebounce(input,1000);
-  useEffect(()=>{
+  const { setText } = useContext(MyContext);
+  const [input, setInput] = useState("");
+
+  //using debounce to limit api hit
+  const debouncedValue = useDebounce(input, 500);
+  useEffect(() => {
     setText(debouncedValue);
-  },[debouncedValue])
-  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+  }, [debouncedValue]);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
   return (
@@ -23,7 +25,7 @@ const Search = () => {
           type="text"
           title="search"
           value={input}
-          onChange={ handleChange}
+          onChange={handleChange}
           placeholder="Search high-resolution images"
           className=" w-full rounded-lg bg-inherit p-2 pl-20 text-xl font-normal text-gray-100 outline-none placeholder:text-xl placeholder:text-gray-300"
         />

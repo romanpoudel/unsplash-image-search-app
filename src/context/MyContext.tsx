@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 
 export interface SearchInterface {
     text:string;
@@ -12,3 +12,14 @@ const defaultState:SearchInterface=
     }  
 
 export const MyContext = createContext(defaultState);
+
+
+const SearchContext = ({children}:any)=>{
+    const [text,setText]=useState("");
+    return (
+        <MyContext.Provider value={{text,setText}}>
+            {children}
+        </MyContext.Provider>
+    )
+}
+export default SearchContext;
