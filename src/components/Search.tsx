@@ -30,8 +30,6 @@ const Search = () => {
           className=" w-full rounded-lg bg-inherit p-2 pl-20 text-xl font-normal text-gray-100 outline-none placeholder:text-xl placeholder:text-gray-300"
         />
       </div>
-      <p>Value real-time: {input}</p>
-      <p>Debounced value: {debouncedValue}</p>
     </div>
   );
 };

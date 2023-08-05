@@ -4,6 +4,7 @@ import Search from "./components/Search";
 import Pagination from "./components/Pagination";
 // import { useState } from "react";
 import SearchContext from "./context/MyContext";
+import PaginationContext from "./context/PageContext";
 
 function App() {
   // const [text, setText] = useState("");
@@ -13,11 +14,13 @@ function App() {
       <SearchContext>
         {/* search */}
         <Search />
-        {/* image components */}
-        <Home />
-        {/* pagination */}
-        <Pagination />
-      {/* </MyContext.Provider> */}
+        <PaginationContext>
+          {/* image components */}
+          <Home />
+          {/* pagination */}
+          <Pagination />
+        </PaginationContext>
+        {/* </MyContext.Provider> */}
       </SearchContext>
     </div>
   );

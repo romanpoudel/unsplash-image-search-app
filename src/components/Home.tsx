@@ -1,7 +1,8 @@
-import { useEffect, useState,useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import Card from "./Card";
 import { createApi } from "unsplash-js";
 import { MyContext } from "../context/MyContext";
+import { PageContext } from "../context/PageContext";
 
 type Photo = {
   id: number;
@@ -29,25 +30,29 @@ const api = createApi({
 });
 
 const Home = () => {
-  const { text} = useContext(MyContext);
-  const [data, setPhotosResponse] = useState<any>(null);
-  console.log(data);
+  const { text } = useContext(MyContext);
+  const{setPage,pageno}=useContext(PageContext)
+  const [data, setDataResponse] = useState<any>(null);
+
   useEffect(() => {
     api.search
       .getPhotos({
         query: text,
-        page: 1,
+        page: pageno,
         perPage: 10,
-        color:"green",
+        color: "green",
         orientation: "landscape",
       })
       .then((result) => {
-        setPhotosResponse(result);
+        setDataResponse(result);
       })
       .catch(() => {
         console.log("something went wrong!");
       });
-  }, [text]);
+      setPage(data?.response?.total_pages)
+    console.log(data);
+    console.log(pageno)
+  }, [text,pageno]);
 
   //checking data
   if (data === null) {
