@@ -31,16 +31,31 @@ const api = createApi({
 
 const Home = () => {
   const { text } = useContext(MyContext);
-  const{setPage,pageno}=useContext(PageContext)
+  const { setPage, pageno } = useContext(PageContext);
   const [data, setDataResponse] = useState<any>(null);
+  const [itemno, setItemno] = useState<number>();
 
+  //for rendering different number of cards according to width for responsive design
+  useEffect(() => {
+    function handleResize() {
+      console.log(window.innerWidth);
+      if (window.innerWidth >= 768 && window.innerWidth <= 1024) {
+        setItemno(9);
+      } else if (window.innerWidth >= 1024 && window.innerWidth <= 1280) {
+        setItemno(12);
+      } else if (window.innerWidth >= 1536) {
+        setItemno(15);
+      }
+    }
+    window.addEventListener("resize", handleResize);
+  });
   useEffect(() => {
     api.search
       .getPhotos({
         query: text,
         page: pageno,
-        perPage: 10,
-        color: "green",
+        perPage: itemno,
+        // color: "green",
         orientation: "landscape",
       })
       .then((result) => {
@@ -49,11 +64,22 @@ const Home = () => {
       .catch(() => {
         console.log("something went wrong!");
       });
-      setPage(data?.response?.total_pages)
+    setPage(data?.response?.total_pages);
     console.log(data);
-    console.log(pageno)
-  }, [text,pageno]);
+    console.log(pageno);
+  }, [text, pageno, itemno]);
 
+  //when search field is empty
+  if (text === "") {
+    return (
+      <div className="flex items-center mt-28 border">
+        <div className="mx-auto my-auto h-[400px] w-[400px] rounded-xl bg-[url(public/Sailor.jpg)]  bg-cover relative flex justify-center">
+          {/* <img src="public/Sailor 03.jpg"  alt="search image" width={440} style={borderRadius:50%}/> */}
+          <p className="text-white font-bold text-2xl absolute bottom-8 font-pacifico tracking-widest">Search images</p>
+        </div>
+      </div>
+    );
+  }
   //checking data
   if (data === null) {
     return <div>Loading...</div>;
