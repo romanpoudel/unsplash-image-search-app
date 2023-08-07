@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Pacifico&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Pacifico&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,4 +6,16 @@
 
 body {
   background-color: #f0f0f0; /* Replace with your desired background color */
+}
+@keyframes decreasing-line {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+.animate-decreasing-line {
+  animation: decreasing-line 2.5s linear infinite;
 }

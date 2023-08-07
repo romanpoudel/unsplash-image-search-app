@@ -16,13 +16,13 @@ const pagination = () => {
     setPageno(p);
   };
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mb-4">
       {text!=="" && !!page && (
         <Pagination
           count={page}
           variant="outlined"
           shape="rounded"
-          size="large"
+          // size="large"
           onChange={handleChange}
         />
       )}
