@@ -72,8 +72,8 @@ const Home = () => {
   //when search field is empty
   if (text === "") {
     return (
-      <div className="flex items-center mt-28 border">
-        <div className="mx-auto my-auto h-[400px] w-[400px] rounded-xl bg-[url(public/Sailor.jpg)]  bg-cover relative flex justify-center">
+      <div className="flex items-center mt-28">
+        <div className="mx-auto my-auto h-[400px] w-[400px] rounded-xl bg-[url(/Sailor.jpg)]  bg-cover relative flex justify-center">
           {/* <img src="public/Sailor 03.jpg"  alt="search image" width={440} style={borderRadius:50%}/> */}
           <p className="text-white font-bold text-2xl absolute bottom-8 font-pacifico tracking-widest">Search images</p>
         </div>

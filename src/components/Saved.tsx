@@ -5,8 +5,8 @@ const Saved = () => {
         <li> Image Saved.</li>
       </ul>
       {/* time bar */}
-      <div className="relative h-1 w-32 bg-gray-300 pr-2">
-        <div className="animate-decreasing-line h-full bg-blue-500"></div>
+      <div className="relative h-1 w-32 rounded-full bg-gray-300 pr-2">
+        <div className="animate-decreasing-line h-full rounded-full bg-blue-500"></div>
       </div>
     </div>
   );

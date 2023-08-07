@@ -1,3 +1,6 @@
+import {useContext} from "react";
+import { MyContext } from "../context/MyContext";
+
 type Photo = {
   id: number;
   description: string;
@@ -19,6 +22,7 @@ type Photo = {
 };
 
 const Card = ({ photo }: { photo: Photo }) => {
+  const {setShow}=useContext(MyContext)
   const { urls, description, alt_description } = photo;
   //display alt_desctiption if description is null
   const displayText = description || alt_description;
@@ -33,6 +37,8 @@ const Card = ({ photo }: { photo: Photo }) => {
     if (!isAlreadySaved) {
       savedImages.push({ ...photo });
       window.localStorage.setItem("images", JSON.stringify(savedImages));
+      //implement popup function
+      setShow(true);
     }
   };
   return (
