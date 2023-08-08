@@ -4,7 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import { useDebounce } from "usehooks-ts";
 
 const Search = () => {
-  const { setText } = useContext(MyContext);
+  const { text,setText } = useContext(MyContext);
   const [input, setInput] = useState("");
 
   //using debounce to limit api hit
@@ -16,11 +16,11 @@ const Search = () => {
     setInput(e.target.value);
   };
   return (
-    <div className="relative  my-6 flex  flex-row items-center rounded-lg bg-blue-500 ">
+    <div className="relative  my-6 flex  flex-row items-center rounded-md bg-blue-500 ">
       <div className="pointer-events-none absolute flex h-full items-center rounded-l-lg bg-blue-500 px-4">
         <LiaSearchSolid color="white" size={30} />
       </div>
-      <div className="w-full rounded-lg bg-gradient-to-r from-blue-400 to-blue-500">
+      <div className="w-full rounded-lg bg-gradient-to-r from-blue-400 to-indigo-500">
         <input
           type="text"
           title="search"

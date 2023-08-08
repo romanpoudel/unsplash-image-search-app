@@ -8,6 +8,7 @@ import Modal from "react-modal";
 import { Photo } from "../type";
 import { BiSolidLike } from "react-icons/bi";
 import { Tooltip } from "@mui/material";
+import HeroSection from "./HeroSection";
 
 const access_key = import.meta.env.VITE_ACCESS_KEY;
 
@@ -63,14 +64,15 @@ const Home = () => {
   //when search field is empty
   if (text === "") {
     return (
-      <div className="mt-28 flex items-center">
-        <div className="relative mx-auto my-auto flex h-[400px] w-[400px]  justify-center rounded-xl bg-[url(/Sailor.jpg)] bg-cover">
-          {/* <img src="public/Sailor 03.jpg"  alt="search image" width={440} style={borderRadius:50%}/> */}
-          <p className="absolute bottom-8 font-pacifico text-2xl font-bold tracking-widest text-white">
-            Search images
-          </p>
-        </div>
-      </div>
+      <HeroSection />
+      // <div className="mt-28 flex items-center">
+      //   <div className="relative mx-auto my-auto flex h-[400px] w-[400px]  justify-center rounded-xl bg-[url(/Sailor.jpg)] bg-cover">
+      //     {/* <img src="public/Sailor 03.jpg"  alt="search image" width={440} style={borderRadius:50%}/> */}
+      //     <p className="absolute bottom-8 font-pacifico text-2xl font-bold tracking-widest text-white">
+      //       Search images
+      //     </p>
+      //   </div>
+      // </div>
     );
   }
   //checking data
