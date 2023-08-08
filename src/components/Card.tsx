@@ -44,7 +44,7 @@ const Card = ({ photo }: { photo: Photo }) => {
   return (
     <div className="rounded-lg bg-white">
       <img
-        src={urls.thumb}
+        src={urls.small}
         alt=""
         className="h-3/4 w-full rounded-t-lg object-cover"
       />

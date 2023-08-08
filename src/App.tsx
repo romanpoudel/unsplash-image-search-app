@@ -2,7 +2,7 @@ import "./App.css";
 import Home from "./components/Home";
 import Search from "./components/Search";
 import Pagination from "./components/Pagination";
-import { useState, useEffect,useContext } from "react";
+import { useEffect,useContext } from "react";
 // import SearchContext from "./context/MyContext";
 // import PaginationContext from "./context/PageContext";
 import Saved from "./components/Saved";
