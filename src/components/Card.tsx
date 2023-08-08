@@ -1,34 +1,32 @@
-import {useContext} from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
 import { MyContext } from "../context/MyContext";
+import { Photo } from "../type";
 
-type Photo = {
-  id: number;
-  description: string;
-  alt_description: string;
-  width: number;
-  height: number;
-  urls: {
-    large: string;
-    regular: string;
-    raw: string;
-    small: string;
-    thumb: string;
-  };
-  color: string | null;
-  user: {
-    username: string;
-    name: string;
-  };
-};
-
-const Card = ({ photo }: { photo: Photo }) => {
-  const {setShow}=useContext(MyContext)
+const Card = ({
+  photo,
+  handleClick,
+  getModalData,
+}: {
+  photo: Photo;
+  handleClick: Dispatch<SetStateAction<string | null>>;
+  getModalData: Dispatch<SetStateAction<(string | number)[]>>;
+}) => {
+  const { setShow } = useContext(MyContext);
   const { urls, description, alt_description } = photo;
+  //for modal
+  const name = photo.user.name;
+  const username = photo.user.username;
+  const thumb = photo.urls.regular;
+  const likes = photo.likes;
+  const pic = photo.user.profile_image.large;
+  const html = photo.user.links.html;
+  const totalPics = photo.user.total_photos;
   //display alt_desctiption if description is null
   const displayText = description || alt_description;
 
   //save to localStorage
-  const handleSave = () => {
+  const handleSave = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
     const savedImagesJSON: any = window.localStorage.getItem("images");
     const savedImages: any = JSON.parse(savedImagesJSON) || [];
     const isAlreadySaved = savedImages.some(
@@ -42,9 +40,15 @@ const Card = ({ photo }: { photo: Photo }) => {
     }
   };
   return (
-    <div className="rounded-lg bg-white">
+    <div
+      className="rounded-lg bg-white"
+      onClick={() => {
+        handleClick(urls.thumb);
+        getModalData([name, username, thumb, likes, pic, html, totalPics]);
+      }}
+    >
       <img
-        src={urls.thumb}
+        src={urls.regular}
         alt=""
         className="h-3/4 w-full rounded-t-lg object-cover"
       />
