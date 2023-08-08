@@ -6,7 +6,6 @@ import { PageContext } from "../context/PageContext";
 // import Modal from "./Modal";
 import Modal from "react-modal";
 import { Photo } from "../type";
-import { AiFillHeart } from "react-icons/ai";
 import { BiSolidLike } from "react-icons/bi";
 import { Tooltip } from "@mui/material";
 
