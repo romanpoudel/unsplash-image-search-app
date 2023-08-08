@@ -43,7 +43,7 @@ const Card = ({
     <div
       className="rounded-lg bg-white"
       onClick={() => {
-        handleClick(urls.thumb);
+        handleClick(urls.small);
         getModalData([name, username, thumb, likes, pic, html, totalPics]);
       }}
     >
