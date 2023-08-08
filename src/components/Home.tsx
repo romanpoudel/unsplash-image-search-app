@@ -91,7 +91,7 @@ const Home = () => {
         <Modal
           isOpen={!!currentImg}
           onRequestClose={() => setCurrentImg(null)}
-          className="mx-auto mt-16 h-[680px] w-[800px] rounded-lg border bg-white"
+          className="mx-auto mt-44 max-h-[680px] max-w-[800px] rounded-lg border bg-white"
         >
           <img
             src={String(thumb)}

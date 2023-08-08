@@ -4,7 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import { useDebounce } from "usehooks-ts";
 
 const Search = () => {
-  const { text,setText } = useContext(MyContext);
+  const { setText } = useContext(MyContext);
   const [input, setInput] = useState("");
 
   //using debounce to limit api hit
@@ -27,7 +27,7 @@ const Search = () => {
           value={input}
           onChange={handleChange}
           placeholder="Search high-resolution images"
-          className=" w-full rounded-lg bg-inherit p-2 pl-20 text-xl font-normal text-gray-100 outline-none placeholder:text-xl placeholder:text-gray-300"
+          className=" w-full rounded-lg bg-inherit p-2 pl-20 text-xl font-normal text-gray-100 outline-none placeholder:text-base placeholder:text-gray-300 sm:placeholder:text-xl"
         />
       </div>
     </div>

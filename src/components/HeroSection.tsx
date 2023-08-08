@@ -9,7 +9,7 @@ const HeroSection = () => {
       <p className="pt-4 text-center font-medium">
         Over 2.4 million+ stock Images by talented community
       </p>
-      <div className="w-96 mx-auto">
+      <div className="w-80 sm:w-96 mx-auto">
         <Search />
       </div>
     </div>
