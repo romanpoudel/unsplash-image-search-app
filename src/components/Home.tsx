@@ -114,8 +114,8 @@ const Home = () => {
               </div>
               </Tooltip>
             </a>
-            <div className="gap-4 text-blue-600">
-              <div className="flex items-center gap-4 font-bold text-blue-600">
+            <div className="gap-4 text-blue-500">
+              <div className="flex items-center gap-4 font-bold text-blue-500">
                 <BiSolidLike size={26} />
                 {likes}
               </div>
