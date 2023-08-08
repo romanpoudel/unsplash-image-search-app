@@ -5,7 +5,7 @@ export type Photo = {
   width: number;
   height: number;
   urls: {
-    large: string;
+    full: string;
     regular: string;
     raw: string;
     small: string;
