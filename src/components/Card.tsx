@@ -48,7 +48,7 @@ const Card = ({
       }}
     >
       <img
-        src={urls.regular}
+        src={urls.small}
         alt=""
         className="h-3/4 w-full rounded-t-lg object-cover"
       />
