@@ -40,7 +40,7 @@ const api = createApi({
 
 ### Search images
 
-```http
+```js
   api.search.getPhotos()
 ```
 
