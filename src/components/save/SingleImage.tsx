@@ -39,7 +39,7 @@ const SingleImage = ({
   };
   return (
     <div
-      className="rounded-lg bg-white transition duration-100 hover:scale-105 hover:cursor-pointer hover:shadow-lg"
+      className="rounded-lg bg-white  hover:cursor-pointer hover:shadow-lg"
       onClick={() => {
         handleClick(urls.small);
         getModalData([
@@ -58,7 +58,7 @@ const SingleImage = ({
         src={urls.small}
         alt=""
         loading="lazy"
-        className="h-3/4 w-full rounded-t-lg object-cover"
+        className="h-3/4 w-full rounded-t-lg object-cover hover:scale-105 transition duration-100 ease-in-out hover:rounded-lg"
       />
       <div className="mx-2 flex h-1/4  items-center justify-center  py-4">
         <p className="my-2 line-clamp-1 h-4 w-3/4 overflow-hidden  px-1 text-xs font-semibold capitalize  text-gray-600 sm:line-clamp-2 sm:h-10  sm:text-sm lg:h-12 lg:text-base">

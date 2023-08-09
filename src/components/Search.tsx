@@ -23,7 +23,7 @@ const Search = () => {
       <div className="w-full rounded-lg bg-gradient-to-r from-indigo-600 to-purple-400">
         <input
           type="text"
-          title="search"
+          // title="search"
           value={input}
           onChange={handleChange}
           placeholder="Search high-resolution images"

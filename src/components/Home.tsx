@@ -3,7 +3,6 @@ import Card from "./Card";
 import { createApi } from "unsplash-js";
 import { MyContext } from "../context/MyContext";
 import { PageContext } from "../context/PageContext";
-// import Modal from "./Modal";
 import { Photo } from "../type";
 import HeroSection from "./HeroSection";
 import ModalImage from "./ModalImage";
