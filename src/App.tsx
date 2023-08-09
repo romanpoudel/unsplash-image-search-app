@@ -43,7 +43,7 @@ function App() {
         </div>
         <Link to="/saved-images">
           <Tooltip title="Saved Images" placement="bottom" arrow>
-            <div className="ml-4 cursor-pointer text-indigo-500">
+            <div className="ml-4 cursor-pointer text-purple-500">
               <BsSave size={38} />
             </div>
           </Tooltip>
