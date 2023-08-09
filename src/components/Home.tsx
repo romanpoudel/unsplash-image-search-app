@@ -113,31 +113,33 @@ const Home = () => {
             />
           </div>
 
-          <div className="mx-4 flex h-1/6 flex-row items-center justify-between">
+          <div className="mx-2 flex h-1/6 flex-row items-center justify-between">
             <a href={String(html)} target="_blank" rel="noopener noreferrer">
               <Tooltip title="View Page" placement="right" arrow>
                 <div className="flex items-center gap-4 p-2">
-                  <div>
+                  <div className="w-16">
                     <img
                       src={String(pic)}
                       alt=""
+                      width={100}
+                      height={100}
                       className="w-16 rounded-full border-4 border-indigo-500"
                     />
                   </div>
                   <div className="text-indigo-600">
-                    <div className="font-bold">{name}</div>
-                    <div className="text-sm">@{username}</div>
+                    <div className="font-bold whitespace-nowrap ">{name}</div>
+                    <div className="text-sm whitespace-nowrap">@{username}</div>
                   </div>
                 </div>
               </Tooltip>
             </a>
-            <div><p className="text-xs mx-2 text-indigo-600 hidden sm:inline-block">{displayText}</p></div>
+            <div className="flex flex-grow h-9"><p className="text-xs mx-2 text-indigo-600 hidden sm:inline-block capitalize-first ">{displayText}</p></div>
             <div className="text-indigo-600 my-4 flex sm:flex-col gap-4 sm:gap-0 items-center sm:items-start">
               <div className="flex items-center gap-2 sm:gap-4 font-bold text-indigo-600">
                 <BiSolidLike size={26} />
                 {likes}
               </div>
-              <div className="font-bold w-28 ">Total Pics: {totalPics}</div>
+              <div className="font-bold whitespace-nowrap">Total Pics: {totalPics}</div>
             </div>
           </div>
         </Modal>

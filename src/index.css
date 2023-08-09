@@ -19,3 +19,7 @@ body {
 .animate-decreasing-line {
   animation: decreasing-line 2.5s linear infinite;
 }
+
+.capitalize-first::first-letter {
+  text-transform: uppercase;
+}
