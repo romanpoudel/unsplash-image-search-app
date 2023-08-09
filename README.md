@@ -54,3 +54,4 @@ const api = createApi({
 - **Styling:** TailwindCSS
 - **Icons:** react-icons
 - **UI Library:** Material UI
+- **API**: [Unsplash API](https://unsplash.com/documentation)
