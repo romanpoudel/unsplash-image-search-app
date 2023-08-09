@@ -1,14 +1,33 @@
 import { MyContext } from "../../context/MyContext";
 import { Photo } from "../../type";
-import { useContext } from "react";
+import { useContext, Dispatch, SetStateAction } from "react";
 // import {Dispatch,SetStateAction} from "react"
 
-const SingleImage = ({ photo }: { photo: Photo }) => {
+const SingleImage = ({
+  photo,
+  handleClick,
+  getModalData,
+}: {
+  photo: Photo;
+  handleClick: Dispatch<SetStateAction<string | null>>;
+  getModalData: Dispatch<SetStateAction<(string | number)[]>>;
+}) => {
   const { setCount } = useContext(MyContext);
   const { urls, description, alt_description } = photo;
   const displayText = description || alt_description;
   console.log(displayText);
-  const handleRemove = () => {
+  //for modal
+  const name = photo.user.name;
+  const username = photo.user.username;
+  const thumb = photo.urls.regular;
+  const likes = photo.likes;
+  const pic = photo.user.profile_image.large;
+  const html = photo.user.links.html;
+  const totalPics = photo.user.total_photos;
+
+  //remove from localStorage
+  const handleRemove = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
     const savedImagesJSON: any = window.localStorage.getItem("images");
     const savedImages: any = JSON.parse(savedImagesJSON) || [];
     const filteredArray = savedImages.filter(
@@ -19,7 +38,22 @@ const SingleImage = ({ photo }: { photo: Photo }) => {
     setCount(filteredArray.length);
   };
   return (
-    <div className="rounded-lg bg-white">
+    <div
+      className="rounded-lg bg-white transition duration-100 hover:scale-105 hover:cursor-pointer hover:shadow-lg"
+      onClick={() => {
+        handleClick(urls.small);
+        getModalData([
+          name,
+          username,
+          thumb,
+          likes,
+          pic,
+          html,
+          totalPics,
+          displayText,
+        ]);
+      }}
+    >
       <img
         src={urls.small}
         alt=""

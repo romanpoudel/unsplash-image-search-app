@@ -13,17 +13,19 @@ import { Link } from "react-router-dom";
 
 function App() {
   // const [count, setCount] = useState(0);
-  const { show, setShow,count } = useContext(MyContext);
+  const { show, setShow,count ,setCount} = useContext(MyContext);
+  console.log(count)
 
-  // useEffect(() => {
-  //   const storedArrayJSON = localStorage.getItem("images");
-  //   if (storedArrayJSON !== null) {
-  //     const storedArray = JSON.parse(storedArrayJSON);
-  //     const arrayLength = storedArray.length;
-  //     console.log(arrayLength);
-  //     setCount(arrayLength);
-  //   }
-  // }, []);
+  //to load count initially
+  useEffect(() => {
+    const storedArrayJSON = localStorage.getItem("images");
+    if (storedArrayJSON !== null) {
+      const storedArray = JSON.parse(storedArrayJSON);
+      const arrayLength = storedArray.length;
+      console.log(arrayLength);
+      setCount(arrayLength);
+    }
+  }, []);
 
   useEffect(() => {
     // setShow(true);

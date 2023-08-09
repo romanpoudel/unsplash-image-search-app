@@ -43,7 +43,7 @@ const Card = ({
   };
   return (
     <div
-      className="rounded-lg bg-white hover:shadow-lg"
+      className="rounded-lg bg-white hover:shadow-xl cursor-pointer"
       onClick={() => {
         handleClick(urls.small);
         getModalData([name, username, thumb, likes, pic, html, totalPics,displayText]);
@@ -53,7 +53,7 @@ const Card = ({
         src={urls.small}
         alt=""
         loading="lazy"
-        className="h-3/4 w-full rounded-t-lg object-cover"
+        className="h-3/4 w-full rounded-t-lg object-cover hover:scale-110 hover:rounded-lg transition duration-500 ease-in-out" 
       />
       <div className="mx-2 flex h-1/4  items-center justify-center gap-1 py-4">
         <p className="my-2 line-clamp-1 h-4 w-3/4 overflow-hidden  px-1 text-xs font-semibold capitalize  text-gray-600 sm:line-clamp-2 sm:h-10  sm:text-sm lg:h-12 lg:text-base">
