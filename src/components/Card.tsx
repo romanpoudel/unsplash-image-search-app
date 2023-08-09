@@ -11,7 +11,7 @@ const Card = ({
   handleClick: Dispatch<SetStateAction<string | null>>;
   getModalData: Dispatch<SetStateAction<(string | number)[]>>;
 }) => {
-  const { setShow } = useContext(MyContext);
+  const { setCount,setShow } = useContext(MyContext);
   const { urls, description, alt_description } = photo;
   //for modal
   const name = photo.user.name;
@@ -37,14 +37,16 @@ const Card = ({
       window.localStorage.setItem("images", JSON.stringify(savedImages));
       //implement popup function
       setShow(true);
+      //badge
+      setCount(savedImages.length)
     }
   };
   return (
     <div
-      className="rounded-lg bg-white"
+      className="rounded-lg bg-white hover:shadow-lg"
       onClick={() => {
         handleClick(urls.small);
-        getModalData([name, username, thumb, likes, pic, html, totalPics]);
+        getModalData([name, username, thumb, likes, pic, html, totalPics,displayText]);
       }}
     >
       <img

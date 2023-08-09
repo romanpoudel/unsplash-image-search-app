@@ -1,8 +1,10 @@
+import { MyContext } from "../../context/MyContext";
 import { Photo } from "../../type";
+import { useContext } from "react";
 // import {Dispatch,SetStateAction} from "react"
 
 const SingleImage = ({ photo }: { photo: Photo }) => {
-    
+  const { setCount } = useContext(MyContext);
   const { urls, description, alt_description } = photo;
   const displayText = description || alt_description;
   console.log(displayText);
@@ -13,7 +15,8 @@ const SingleImage = ({ photo }: { photo: Photo }) => {
       (savedPhoto: any) => savedPhoto.id !== photo.id,
     );
     window.localStorage.setItem("images", JSON.stringify(filteredArray));
-    // change(true)
+    // change badge count
+    setCount(filteredArray.length);
   };
   return (
     <div className="rounded-lg bg-white">

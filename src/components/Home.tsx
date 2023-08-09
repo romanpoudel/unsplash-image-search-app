@@ -17,6 +17,16 @@ const api = createApi({
   accessKey: access_key,
 });
 
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 const Home = () => {
   const { text } = useContext(MyContext);
   const { setPage, pageno } = useContext(PageContext);
@@ -24,7 +34,7 @@ const Home = () => {
   const [itemno, setItemno] = useState<number>();
   const [currentImg, setCurrentImg] = useState<string | null>(null);
   const [modalData, setModalData] = useState<(string | number)[]>([]);
-  const [name, username, thumb, likes, pic, html, totalPics] = modalData;
+  const [name, username, thumb, likes, pic, html, totalPics,displayText] = modalData;
 
   //for rendering different number of cards according to width for responsive design
   useEffect(() => {
@@ -91,13 +101,18 @@ const Home = () => {
         <Modal
           isOpen={!!currentImg}
           onRequestClose={() => setCurrentImg(null)}
-          className="  mx-auto mt-16 max-h-[680px] max-w-[800px] rounded-lg border bg-white"
+          className="absolute  max-h-[680px] max-w-[800px] rounded-lg border bg-white"
+          style={customStyles}
         >
-          <img
-            src={String(thumb)}
-            alt=""
-            className="h-5/6 w-full rounded-t-lg object-cover"
-          />
+          <div className="h-5/6">
+            <img
+              src={String(thumb)}
+              alt=""
+              height={599}
+              className="w-full max-h-[598.5px] rounded-t-lg object-cover "
+            />
+          </div>
+
           <div className="mx-4 flex h-1/6 flex-row items-center justify-between">
             <a href={String(html)} target="_blank" rel="noopener noreferrer">
               <Tooltip title="View Page" placement="right" arrow>
@@ -106,22 +121,23 @@ const Home = () => {
                     <img
                       src={String(pic)}
                       alt=""
-                      className="w-16 rounded-full border-4 border-blue-500"
+                      className="w-16 rounded-full border-4 border-indigo-500"
                     />
                   </div>
-                  <div className="text-blue-600">
+                  <div className="text-indigo-600">
                     <div className="font-bold">{name}</div>
                     <div className="text-sm">@{username}</div>
                   </div>
                 </div>
               </Tooltip>
             </a>
-            <div className="gap-4 text-blue-500">
-              <div className="flex items-center gap-4 font-bold text-blue-500">
+            <div><p className="text-xs mx-2 text-indigo-600 hidden sm:inline-block">{displayText}</p></div>
+            <div className="text-indigo-600 my-4 flex sm:flex-col gap-4 sm:gap-0 items-center sm:items-start">
+              <div className="flex items-center gap-2 sm:gap-4 font-bold text-indigo-600">
                 <BiSolidLike size={26} />
                 {likes}
               </div>
-              <div className="font-bold">Total Pics: {totalPics}</div>
+              <div className="font-bold w-28 ">Total Pics: {totalPics}</div>
             </div>
           </div>
         </Modal>
