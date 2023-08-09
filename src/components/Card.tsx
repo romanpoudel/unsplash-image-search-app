@@ -50,6 +50,7 @@ const Card = ({
       <img
         src={urls.small}
         alt=""
+        loading="lazy"
         className="h-3/4 w-full rounded-t-lg object-cover"
       />
       <div className="mx-2 flex h-1/4  items-center justify-center gap-1 py-4">
@@ -58,7 +59,7 @@ const Card = ({
         </p>
         <button
           type="button"
-          className="w-20 rounded-full bg-blue-500  py-1 text-white hover:bg-blue-600 hover:shadow-lg "
+          className="w-20 rounded-full bg-indigo-600  py-1 text-white hover:bg-indigo-700 hover:shadow-lg "
           onClick={handleSave}
         >
           Save

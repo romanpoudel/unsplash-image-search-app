@@ -91,7 +91,7 @@ const Home = () => {
         <Modal
           isOpen={!!currentImg}
           onRequestClose={() => setCurrentImg(null)}
-          className="mx-auto mt-44 max-h-[680px] max-w-[800px] rounded-lg border bg-white"
+          className="  mx-auto mt-16 max-h-[680px] max-w-[800px] rounded-lg border bg-white"
         >
           <img
             src={String(thumb)}
@@ -100,20 +100,20 @@ const Home = () => {
           />
           <div className="mx-4 flex h-1/6 flex-row items-center justify-between">
             <a href={String(html)} target="_blank" rel="noopener noreferrer">
-            <Tooltip title="View Page"  placement="right" arrow>
-              <div className="flex items-center gap-4">
-                <div>
-                  <img
-                    src={String(pic)}
-                    alt=""
-                    className="w-16 rounded-full border-4 border-blue-500"
-                  />
+              <Tooltip title="View Page" placement="right" arrow>
+                <div className="flex items-center gap-4 p-2">
+                  <div>
+                    <img
+                      src={String(pic)}
+                      alt=""
+                      className="w-16 rounded-full border-4 border-blue-500"
+                    />
+                  </div>
+                  <div className="text-blue-600">
+                    <div className="font-bold">{name}</div>
+                    <div className="text-sm">@{username}</div>
+                  </div>
                 </div>
-                <div className="text-blue-600">
-                  <div className="font-bold">{name}</div>
-                  <div className="text-sm">@{username}</div>
-                </div>
-              </div>
               </Tooltip>
             </a>
             <div className="gap-4 text-blue-500">
@@ -125,6 +125,7 @@ const Home = () => {
             </div>
           </div>
         </Modal>
+
         <div className="mb-8 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
           {data.response.results.map((photo: Photo) => (
             <Card

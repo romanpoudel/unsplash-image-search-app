@@ -5,8 +5,11 @@ import Pagination from "./components/Pagination";
 import { useEffect, useContext } from "react";
 // import SearchContext from "./context/MyContext";
 // import PaginationContext from "./context/PageContext";
-import Saved from "./components/Saved";
+import Notification from "./components/Notification";
 import { MyContext } from "./context/MyContext";
+import { BsSave } from "react-icons/bs";
+import { Tooltip } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -34,7 +37,19 @@ function App() {
       {/* <MyContext.Provider value={{ text, setText }}> */}
       {/* <SearchContext> */}
       {/* search */}
-      <Search />
+      <div className="flex items-center">
+        <div className="flex flex-grow">
+          <Search />
+        </div>
+        <Link to="/saved-images">
+          <Tooltip title="Saved Images" placement="bottom" arrow>
+            <div className="ml-4 cursor-pointer text-indigo-500">
+              <BsSave size={38} />
+            </div>
+          </Tooltip>
+        </Link>
+      </div>
+
       {/* <PaginationContext> */}
       {/* image components */}
       <Home />
@@ -42,7 +57,7 @@ function App() {
       <Pagination />
       {/* </PaginationContext> */}
       {/* </MyContext.Provider> */}
-      <div className="absolute  bottom-4">{show && <Saved />}</div>
+      <div className="absolute  bottom-4">{show && <Notification />}</div>
       {/* </SearchContext> */}
     </div>
   );
