@@ -35,11 +35,11 @@ function App() {
     console.log(show);
   }, [show]);
   return (
-    <div className="mx-auto w-[95%]">
+    <div className="mx-auto max-w-screen-2xl px-4">
       {/* <MyContext.Provider value={{ text, setText }}> */}
       {/* <SearchContext> */}
       {/* search */}
-      <div className="flex items-center">
+      <header className="flex items-center">
         <div className="flex flex-grow">
           <Search />
         </div>
@@ -52,7 +52,7 @@ function App() {
           </Tooltip>
           </Badge>
         </Link>
-      </div>
+      </header>
 
       {/* <PaginationContext> */}
       {/* image components */}

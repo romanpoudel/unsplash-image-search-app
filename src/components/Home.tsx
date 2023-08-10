@@ -76,7 +76,7 @@ const Home = () => {
     return (
       <>
       <ModalImage modalData={modalData} currentImg={currentImg} setCurrentImg={setCurrentImg}/>
-        <div className="mb-8 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
+        <main className="mb-8 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
           {data.response.results.map((photo: Photo) => (
             <Card
               key={photo.id}
@@ -85,7 +85,7 @@ const Home = () => {
               getModalData={setModalData}
             />
           ))}
-        </div>
+        </main>
       </>
     );
   }

@@ -25,11 +25,11 @@ const ModalImage = ({
   const [name, username, thumb, likes, pic, html, totalPics, displayText] =
     modalData;
   return (
-    <div>
+   
       <Modal
         isOpen={!!currentImg}
         onRequestClose={() => setCurrentImg(null)}
-        className="absolute  max-h-[680px] max-w-[800px] rounded-lg  bg-white"
+        className="absolute  max-h-[680px] max-w-[800px] rounded-lg  bg-white shadow-xl"
         style={customStyles}
       >
         <div className="h-5/6">
@@ -41,7 +41,7 @@ const ModalImage = ({
           />
         </div>
 
-        <div className="mx-2 flex h-1/6 flex-row items-center justify-between">
+        <section className="mx-2 flex h-1/6 flex-row items-center justify-between">
           <a href={String(html)} target="_blank" rel="noopener noreferrer">
             <Tooltip title="View Page" placement="right" arrow>
               <div className="flex items-center gap-4 p-2">
@@ -75,9 +75,9 @@ const ModalImage = ({
               Total Pics: {totalPics}
             </div>
           </div>
-        </div>
+        </section>
       </Modal>
-    </div>
+ 
   );
 };
 
